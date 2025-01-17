@@ -1,0 +1,33 @@
+{
+  "api-server": {
+    "isOutsideCluster": true,
+    "port": 38080,
+    "enableSecureAPI": true,
+    "namespacePrefix": "aaa",
+    "uidRange": "2000620000/100000",
+    "provider": {
+      "type": "go-oauth",
+      "name": "test-provider",
+      "client_id": "test_client_1",
+      "client_secret": "test_secret",
+      "url": "https://127-0-0-1.nip.io",
+      "redirect_url": "http://localhost:3010/user/classroom-manage"
+    }
+  },
+  "database": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "username": "nchc",
+    "password": "nchc",
+    "database": "nchc"
+  },
+  "kubernetes": {
+    "kubeconfig": "./conf/esxi-config",
+    "nodeportDNS": "http://127.0.0.1",
+    "storageclass": "nchc-ai-nfs"
+  },
+  "rfstack": {
+    "enable": false,
+    "url": "http://127.0.0.1:8085"
+  }
+}

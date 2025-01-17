@@ -1,0 +1,2330 @@
+basePath: /api
+definitions:
+  docs.AccountLabelValue:
+    properties:
+      email:
+        example: student1@gmail.com
+        type: string
+      name:
+        example: 莊小明
+        type: string
+    type: object
+  docs.AddClassroom:
+    properties:
+      calendar:
+        items:
+          $ref: '#/definitions/docs.CalendarTime'
+        type: array
+      courses:
+        items:
+          $ref: '#/definitions/docs.CourseLabelValue'
+        type: array
+      description:
+        example: 國衛院教室說明
+        format: string
+        type: string
+      name:
+        example: 國衛院教室
+        format: string
+        type: string
+      public:
+        example: true
+        format: bool
+        type: boolean
+      schedule:
+        $ref: '#/definitions/docs.Schedule'
+        type: object
+      students:
+        items:
+          $ref: '#/definitions/docs.UserLabelValue'
+        type: array
+      teachers:
+        items:
+          $ref: '#/definitions/docs.UserLabelValue'
+        type: array
+    type: object
+  docs.AddCourseBeta:
+    properties:
+      accessType:
+        example: Ingress
+        format: string
+        type: string
+      datasets:
+        items:
+          $ref: '#/definitions/docs.DatasetLabelValue'
+        type: array
+      gpu:
+        $ref: '#/definitions/docs.GPULabelValue'
+        type: object
+      image:
+        $ref: '#/definitions/docs.ImageLabelValue'
+        type: object
+      introduction:
+        example: 課程說明
+        format: string
+        type: string
+      level:
+        example: basic
+        format: string
+        type: string
+      name:
+        example: jimmy的課
+        format: string
+        type: string
+      ports:
+        items:
+          $ref: '#/definitions/docs.PortLabelValue'
+        type: array
+      user:
+        example: user@gamil.com
+        type: string
+      writablePath:
+        example: /tmp/work
+        type: string
+    type: object
+  docs.CalendarTime:
+    properties:
+      endDate:
+        example: "2019-01-25"
+        format: string
+        type: string
+      length:
+        example: 3
+        format: int
+        type: integer
+      startDate:
+        example: "2019-01-22"
+        format: string
+        type: string
+      startMonth:
+        example: 2
+        format: int
+        type: integer
+    type: object
+  docs.ClassRoomInfo:
+    properties:
+      courseInfo:
+        items:
+          $ref: '#/definitions/docs.ClassroomCourse'
+        type: array
+      createAt:
+        example: "2018-06-25T09:24:38Z"
+        type: string
+      description:
+        example: description
+        format: string
+        type: string
+      id:
+        example: default
+        format: string
+        type: string
+      name:
+        example: Public Course
+        format: string
+        type: string
+      public:
+        example: true
+        format: bool
+        type: boolean
+      studentCount:
+        example: 18
+        format: int
+        type: integer
+      teachers:
+        items:
+          $ref: '#/definitions/docs.UserLabelValue'
+        type: array
+    type: object
+  docs.ClassRoomInfoWithStudent:
+    properties:
+      calendar:
+        items:
+          $ref: '#/definitions/docs.CalendarTime'
+        type: array
+      courseInfo:
+        items:
+          $ref: '#/definitions/docs.ClassroomCourse'
+        type: array
+      createAt:
+        example: "2018-06-25T09:24:38Z"
+        type: string
+      description:
+        example: description
+        format: string
+        type: string
+      id:
+        example: default
+        format: string
+        type: string
+      name:
+        example: Public Course
+        format: string
+        type: string
+      public:
+        example: true
+        format: bool
+        type: boolean
+      schedule:
+        $ref: '#/definitions/docs.Schedule'
+        type: object
+      studentCount:
+        example: 18
+        format: int
+        type: integer
+      students:
+        items:
+          $ref: '#/definitions/docs.UserLabelValue'
+        type: array
+      teachers:
+        items:
+          $ref: '#/definitions/docs.UserLabelValue'
+        type: array
+    type: object
+  docs.ClassroomCourse:
+    properties:
+      createAt:
+        example: "2018-06-25T09:24:38Z"
+        type: string
+      id:
+        example: 49a31009-7d1b-4ff2-badd-e8c717e2256c
+        type: string
+      level:
+        example: basic
+        format: string
+        type: string
+      name:
+        example: jimmy的課
+        format: string
+        type: string
+      roomId:
+        example: d385a235-e1a1-49de-8b65-0b0d6a5783e5
+        format: string
+        type: string
+      type:
+        example: CONTAINER
+        format: string
+        type: string
+    type: object
+  docs.ClassroomCourseWithType:
+    properties:
+      createAt:
+        example: "2018-06-25T09:24:38Z"
+        type: string
+      id:
+        example: 49a31009-7d1b-4ff2-badd-e8c717e2256c
+        type: string
+      level:
+        example: basic
+        format: string
+        type: string
+      name:
+        example: jimmy的課
+        format: string
+        type: string
+      type:
+        example: CONTAINER
+        format: string
+        type: string
+    type: object
+  docs.CommitImage:
+    properties:
+      id:
+        example: 49a31009-7d1b-4ff2-badd-e8c717e2256c
+        type: string
+      name:
+        example: tensorflow/tensorflow:v3
+        type: string
+    type: object
+  docs.CourseLabelValue:
+    properties:
+      label:
+        example: tensorflow introduction
+        type: string
+      value:
+        example: 49a31009-7d1b-4ff2-badd-e8c717e2256c
+        type: string
+    type: object
+  docs.CourseNameListResponse:
+    properties:
+      courses:
+        items:
+          $ref: '#/definitions/docs.CourseLabelValue'
+        type: array
+      error:
+        example: false
+        format: bool
+        type: boolean
+    type: object
+  docs.CourseTypeResponse:
+    properties:
+      error:
+        example: false
+        format: bool
+        type: boolean
+      type:
+        example: container
+        type: string
+    type: object
+  docs.DatasetLabelValue:
+    properties:
+      label:
+        example: cifar-10
+        type: string
+      value:
+        example: dataset-cifar-10
+        type: string
+    type: object
+  docs.DatasetsListResponse:
+    properties:
+      datasets:
+        items:
+          $ref: '#/definitions/docs.DatasetLabelValue'
+        type: array
+      error:
+        type: boolean
+    type: object
+  docs.GPULabelValue:
+    properties:
+      label:
+        example: "0"
+        type: string
+      value:
+        example: 0
+        format: int64
+        type: integer
+    type: object
+  docs.GenericDBRequest:
+    properties:
+      message:
+        example: test
+        type: string
+    type: object
+  docs.GenericErrorResponse:
+    properties:
+      error:
+        example: true
+        format: bool
+        type: boolean
+      message:
+        example: error response message
+        format: string
+        type: string
+    type: object
+  docs.GenericOKResponse:
+    properties:
+      error:
+        example: false
+        format: bool
+        type: boolean
+      message:
+        example: response message
+        format: string
+        type: string
+    type: object
+  docs.GetClassroomResponse:
+    properties:
+      classroom:
+        $ref: '#/definitions/docs.ClassRoomInfoWithStudent'
+        type: object
+      error:
+        type: boolean
+    type: object
+  docs.GetCourse:
+    properties:
+      accessType:
+        example: NodePort
+        type: string
+      createAt:
+        example: "2018-06-25T09:24:38Z"
+        type: string
+      datasets:
+        items:
+          $ref: '#/definitions/docs.DatasetLabelValue'
+        type: array
+      gpu:
+        $ref: '#/definitions/docs.GPULabelValue'
+        type: object
+      id:
+        example: 49a31009-7d1b-4ff2-badd-e8c717e2256c
+        type: string
+      image:
+        $ref: '#/definitions/docs.ImageLabelValue'
+        type: object
+      introduction:
+        example: 課程說明
+        format: string
+        type: string
+      level:
+        example: basic
+        format: string
+        type: string
+      name:
+        example: jimmy的課
+        format: string
+        type: string
+      ports:
+        items:
+          $ref: '#/definitions/docs.PortLabelValue'
+        type: array
+      user:
+        example: jimmy191@teacher
+        type: string
+      writablePath:
+        example: /tmp/work
+        type: string
+    type: object
+  docs.GetCourseResponse:
+    properties:
+      course:
+        $ref: '#/definitions/docs.GetCourse'
+        type: object
+      error:
+        example: false
+        format: bool
+        type: boolean
+    type: object
+  docs.HealthDatabaseResponse:
+    properties:
+      error:
+        example: false
+        format: bool
+        type: boolean
+      message:
+        example: test
+        format: string
+        type: string
+      tables:
+        example:
+        - jobs
+        - courses
+        items:
+          type: string
+        type: array
+    type: object
+  docs.HealthKubernetesResponse:
+    properties:
+      error:
+        example: false
+        format: bool
+        type: boolean
+      message:
+        items:
+          $ref: '#/definitions/docs.Node'
+        type: array
+    type: object
+  docs.ImageLabelValue:
+    properties:
+      label:
+        example: tensorflow/tensorflow:1.5.1
+        type: string
+      value:
+        example: tensorflow/tensorflow:1.5.1
+        type: string
+    type: object
+  docs.ImagesListResponse:
+    properties:
+      error:
+        example: false
+        format: bool
+        type: boolean
+      images:
+        items:
+          $ref: '#/definitions/docs.ImageLabelValue'
+        type: array
+    type: object
+  docs.IntrospectResponse:
+    properties:
+      active:
+        example: true
+        format: bool
+        type: boolean
+      client_id:
+        example: test_client_1
+        type: string
+      exp:
+        example: 1530672296
+        format: int64
+        type: integer
+      role:
+        example: user
+        type: string
+      scope:
+        example: read_write
+        type: string
+      token_type:
+        example: Bearer
+        type: string
+      username:
+        example: user@gmail.com
+        type: string
+    type: object
+  docs.IntrospectionReq:
+    properties:
+      token:
+        example: 045e8bd5-58dc-4bd5-8254-dc3d1571c9cd
+        type: string
+    type: object
+  docs.JobInfo:
+    properties:
+      canSnapshot:
+        example: true
+        format: bool
+        type: boolean
+      course_id:
+        example: b86b2893-b876-45c2-a3f6-5e099c15d638
+        type: string
+      dataset:
+        example:
+        - cifar-10
+        - mnist
+        items:
+          type: string
+        type: array
+      gpu:
+        example: 1
+        format: int64
+        type: integer
+      id:
+        example: 49a31009-7d1b-4ff2-badd-e8c717e2256c
+        type: string
+      image:
+        example: nvidia/caffe:latest
+        type: string
+      introduction:
+        example: markdown text with escape
+        type: string
+      level:
+        example: basic
+        type: string
+      name:
+        example: mage process
+        type: string
+      service:
+        items:
+          $ref: '#/definitions/docs.SVCLabelValue'
+        type: array
+      startAt:
+        example: "2018-06-25T09:24:38Z"
+        type: string
+      status:
+        example: Ready
+        type: string
+    type: object
+  docs.JobListResponse:
+    properties:
+      error:
+        example: false
+        format: bool
+        type: boolean
+      jobs:
+        items:
+          $ref: '#/definitions/docs.JobInfo'
+        type: array
+    type: object
+  docs.JobStatus:
+    properties:
+      job_id:
+        example: 5ab02011-9ab7-40c3-b691-d335f93a12ee
+        type: string
+      ready:
+        example: false
+        format: bool
+        type: boolean
+      status:
+        example: Created
+        type: string
+    type: object
+  docs.LaunchCourseRequest:
+    properties:
+      classroom_id:
+        example: 5ab02011-9ab7-40c3-b691-d335f93a12ee
+        type: string
+      course_id:
+        example: 5ab02011-9ab7-40c3-b691-d335f93a12ee
+        type: string
+      user:
+        example: user@gamil.com
+        type: string
+    type: object
+  docs.LaunchCourseResponse:
+    properties:
+      error:
+        example: false
+        format: bool
+        type: boolean
+      job:
+        $ref: '#/definitions/docs.JobStatus'
+        type: object
+    type: object
+  docs.ListClassroomResponse:
+    properties:
+      classrooms:
+        items:
+          $ref: '#/definitions/docs.ClassRoomInfo'
+        type: array
+      error:
+        example: false
+        format: bool
+        type: boolean
+    type: object
+  docs.ListCourseResponse:
+    properties:
+      courses:
+        items:
+          $ref: '#/definitions/docs.ClassroomCourseWithType'
+        type: array
+      error:
+        example: false
+        format: bool
+        type: boolean
+    type: object
+  docs.Node:
+    properties:
+      name:
+        example: 10.0.1.85
+        type: string
+      status:
+        example: Ready
+        type: string
+    type: object
+  docs.OauthUser:
+    properties:
+      user:
+        example: user@gamil.com
+        type: string
+    type: object
+  docs.OptLabelValue:
+    properties:
+      label:
+        example: 平日
+        type: string
+      value:
+        example: 1-5
+        type: string
+    type: object
+  docs.PasswordInfo:
+    properties:
+      password:
+        example: "654321"
+        type: string
+      username:
+        example: jjj@abc.com
+        type: string
+    type: object
+  docs.PlainResponse:
+    properties:
+      message:
+        example: response from proxy
+        type: string
+    type: object
+  docs.PortLabelValue:
+    properties:
+      name:
+        example: jupyter
+        type: string
+      port:
+        example: 8080
+        format: int64
+        type: integer
+    type: object
+  docs.RefreshTokenReq:
+    properties:
+      refresh_token:
+        example: 7e7f6442-09e0-44f3-a05b-d7ea516cc6c5
+        type: string
+    type: object
+  docs.RoleListResponse:
+    properties:
+      error:
+        example: false
+        format: bool
+        type: boolean
+      users:
+        items:
+          $ref: '#/definitions/docs.UserLabelValue'
+        type: array
+    type: object
+  docs.SVCLabelValue:
+    properties:
+      label:
+        example: jupyter
+        type: string
+      value:
+        example: http://140.110.5.22:30010
+        type: string
+    type: object
+  docs.Schedule:
+    properties:
+      cronFormat:
+        example:
+        - '* * * * * *'
+        format: string
+        items:
+          type: string
+        type: array
+      description:
+        example: 2019/2/11 至 2019/6/15 每周一、三
+        format: string
+        type: string
+      endDate:
+        example: "2019-01-26"
+        format: string
+        type: string
+      selectedOption:
+        items:
+          $ref: '#/definitions/docs.OptLabelValue'
+        type: array
+      selectedType:
+        example: 1
+        format: int
+        type: integer
+      startDate:
+        example: "2019-01-25"
+        format: string
+        type: string
+    type: object
+  docs.Search:
+    properties:
+      query:
+        example: course keyword
+        type: string
+    type: object
+  docs.SimpleClassRoomInfo:
+    properties:
+      calendar:
+        items:
+          $ref: '#/definitions/docs.CalendarTime'
+        type: array
+      createAt:
+        example: "2018-06-25T09:24:38Z"
+        type: string
+      description:
+        example: description
+        format: string
+        type: string
+      id:
+        example: default
+        format: string
+        type: string
+      name:
+        example: Public Course
+        format: string
+        type: string
+      public:
+        example: true
+        format: bool
+        type: boolean
+      teachers:
+        items:
+          $ref: '#/definitions/docs.UserLabelValue'
+        type: array
+    type: object
+  docs.SimpleListClassroomResponse:
+    properties:
+      classrooms:
+        items:
+          $ref: '#/definitions/docs.SimpleClassRoomInfo'
+        type: array
+      error:
+        example: false
+        format: bool
+        type: boolean
+    type: object
+  docs.TokenReq:
+    properties:
+      code:
+        example: f1bd4604-e5ce-469d-b3d7-5e1d8a3e87d7
+        type: string
+    type: object
+  docs.TokenResp:
+    properties:
+      refresh_token:
+        example: 7e7f6442-09e0-44f3-a05b-d7ea516cc6c5
+        type: string
+      token:
+        example: 045e8bd5-58dc-4bd5-8254-dc3d1571c9cd
+        type: string
+    type: object
+  docs.UpdateClassroom:
+    properties:
+      calendar:
+        items:
+          $ref: '#/definitions/docs.CalendarTime'
+        type: array
+      courses:
+        items:
+          $ref: '#/definitions/docs.CourseLabelValue'
+        type: array
+      description:
+        example: 國衛院教室說明
+        format: string
+        type: string
+      id:
+        example: 49a31009-7d1b-4ff2-badd-e8c717e2256c
+        type: string
+      name:
+        example: 國衛院教室
+        format: string
+        type: string
+      public:
+        example: true
+        format: bool
+        type: boolean
+      schedule:
+        $ref: '#/definitions/docs.Schedule'
+        type: object
+      students:
+        items:
+          $ref: '#/definitions/docs.UserLabelValue'
+        type: array
+      teachers:
+        items:
+          $ref: '#/definitions/docs.UserLabelValue'
+        type: array
+    type: object
+  docs.UpdateCourseBeta:
+    properties:
+      datasets:
+        items:
+          $ref: '#/definitions/docs.DatasetLabelValue'
+        type: array
+      gpu:
+        $ref: '#/definitions/docs.GPULabelValue'
+        type: object
+      id:
+        example: 49a31009-7d1b-4ff2-badd-e8c717e2256c
+        type: string
+      image:
+        $ref: '#/definitions/docs.ImageLabelValue'
+        type: object
+      introduction:
+        example: 課程說明
+        format: string
+        type: string
+      level:
+        example: basic
+        format: string
+        type: string
+      name:
+        example: jimmy的課
+        format: string
+        type: string
+      ports:
+        items:
+          $ref: '#/definitions/docs.PortLabelValue'
+        type: array
+      writablePath:
+        example: /tmp/work
+        type: string
+    type: object
+  docs.UpdatedUser:
+    properties:
+      cName:
+        example: 莊莊莊
+        type: string
+      company:
+        example: 國網中心
+        type: string
+      email-1:
+        example: user@ggg.com
+        type: string
+      email-2:
+        example: user@ggg.com
+        type: string
+      phone:
+        example: "0911234567"
+        type: string
+      repository:
+        type: string
+      role:
+        example: student
+        type: string
+      username:
+        example: jjj@abc.com
+        type: string
+    type: object
+  docs.UploadUserResponse:
+    properties:
+      error:
+        example: false
+        format: bool
+        type: boolean
+      users:
+        items:
+          $ref: '#/definitions/docs.AccountLabelValue'
+        type: array
+    type: object
+  docs.UserInfo:
+    properties:
+      cName:
+        example: 莊莊莊
+        type: string
+      company:
+        example: 國網中心
+        type: string
+      email-1:
+        example: user@ggg.com
+        type: string
+      email-2:
+        example: user@ggg.com
+        type: string
+      password:
+        example: "654321"
+        type: string
+      phone:
+        example: "0911234567"
+        type: string
+      repository:
+        type: string
+      role:
+        example: student
+        type: string
+      username:
+        example: jjj@abc.com
+        type: string
+    type: object
+  docs.UserLabelValue:
+    properties:
+      label:
+        example: student1@gmail.com
+        type: string
+      value:
+        example: student1@gmail.com
+        type: string
+    type: object
+host: localhost:38080
+info:
+  contact: {}
+  description: AI Train API.
+  license: {}
+  title: AI Train API
+  version: "0.2"
+paths:
+  /beta/classroom/create:
+    post:
+      consumes:
+      - application/json
+      description: Add new Classroom information into database
+      parameters:
+      - description: classroom information
+        in: body
+        name: classroom
+        required: true
+        schema:
+          $ref: '#/definitions/docs.AddClassroom'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.GenericOKResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Add new Classroom information
+      tags:
+      - Classroom
+  /beta/classroom/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete one classroom
+      parameters:
+      - description: 'classroom uuid, eg: 131ba8a9-b60b-44f9-83b5-46590f756f41'
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.GenericOKResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete one classroom
+      tags:
+      - Classroom
+  /beta/classroom/get/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get one classroom information by id
+      parameters:
+      - description: 'classroom uuid, eg: 131ba8a9-b60b-44f9-83b5-46590f756f41'
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.GetClassroomResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get one classroom information by id
+      tags:
+      - Classroom
+  /beta/classroom/list:
+    get:
+      consumes:
+      - application/json
+      description: List all public and non-public classroom
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.SimpleListClassroomResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: List all public and non-public classroom
+      tags:
+      - Classroom
+    post:
+      consumes:
+      - application/json
+      description: List someone's all public classroom
+      parameters:
+      - description: search user public classroom
+        in: body
+        name: list_user
+        required: true
+        schema:
+          $ref: '#/definitions/docs.OauthUser'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.ListClassroomResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: List someone's all public classroom
+      tags:
+      - Classroom
+  /beta/classroom/update:
+    put:
+      consumes:
+      - application/json
+      description: update existClassroom information
+      parameters:
+      - description: classroom information
+        in: body
+        name: classroom
+        required: true
+        schema:
+          $ref: '#/definitions/docs.UpdateClassroom'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.GenericOKResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: update exist Classroom information
+      tags:
+      - Classroom
+  /beta/classroom/upload:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Upload account csv file
+      parameters:
+      - description: account file
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.UploadUserResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Upload account csv file
+      tags:
+      - Classroom
+  /beta/course/create:
+    post:
+      consumes:
+      - application/json
+      description: Add new course information into database
+      parameters:
+      - description: course information
+        in: body
+        name: course
+        required: true
+        schema:
+          $ref: '#/definitions/docs.AddCourseBeta'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.GenericOKResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Add new course information
+      tags:
+      - Course
+  /beta/course/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: All associated job, Deployment and svc in kubernetes are also deleted.
+      parameters:
+      - description: 'course uuid, eg: 131ba8a9-b60b-44f9-83b5-46590f756f41'
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.GenericOKResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete course information
+      tags:
+      - Course
+  /beta/course/get/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get one courses information by course id
+      parameters:
+      - description: 'course uuid, eg: 131ba8a9-b60b-44f9-83b5-46590f756f41'
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.GetCourseResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get one courses information by course id
+      tags:
+      - Course
+  /beta/course/level/{level}:
+    get:
+      consumes:
+      - application/json
+      description: List basic or advance courses information
+      parameters:
+      - description: basic or advance
+        in: path
+        name: level
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.ListCourseResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      summary: List basic or advance courses information
+      tags:
+      - Course
+  /beta/course/list:
+    get:
+      consumes:
+      - application/json
+      description: get all course information
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.ListCourseResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      summary: List all course information
+      tags:
+      - Course
+    post:
+      consumes:
+      - application/json
+      description: List someone's all courses information
+      parameters:
+      - description: search user course
+        in: body
+        name: list_user
+        required: true
+        schema:
+          $ref: '#/definitions/docs.OauthUser'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.ListCourseResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: List someone's all courses information
+      tags:
+      - Course
+  /beta/course/namelist:
+    get:
+      consumes:
+      - application/json
+      description: Get all courses name, including vm and container
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.CourseNameListResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      summary: Get all courses name, including vm and container
+      tags:
+      - Course
+  /beta/course/search:
+    post:
+      consumes:
+      - application/json
+      description: Search course name
+      parameters:
+      - description: search keyword
+        in: body
+        name: search
+        required: true
+        schema:
+          $ref: '#/definitions/docs.Search'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.ListCourseResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      summary: Search course name
+      tags:
+      - Course
+  /beta/course/type/{id}:
+    get:
+      consumes:
+      - application/json
+      description: course is executed by vm or container
+      parameters:
+      - description: 'course uuid, eg: 131ba8a9-b60b-44f9-83b5-46590f756f41'
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.CourseTypeResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: course is executed by vm or container
+      tags:
+      - Course
+  /beta/course/update:
+    put:
+      consumes:
+      - application/json
+      description: Update course information
+      parameters:
+      - description: new course information
+        in: body
+        name: course
+        required: true
+        schema:
+          $ref: '#/definitions/docs.UpdateCourseBeta'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.GenericOKResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update course information
+      tags:
+      - Course
+  /beta/datasets:
+    get:
+      consumes:
+      - application/json
+      description: List all shared data set stored in PV
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.DatasetsListResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: List all shared data set stored in PV
+      tags:
+      - DataSet
+  /beta/health/database:
+    post:
+      consumes:
+      - application/json
+      description: check backend database is running
+      parameters:
+      - description: show tables in db
+        in: body
+        name: db_name
+        required: true
+        schema:
+          $ref: '#/definitions/docs.GenericDBRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.HealthDatabaseResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      summary: check backend database is running
+      tags:
+      - HealthCheck
+  /beta/health/databaseAuth:
+    post:
+      consumes:
+      - application/json
+      description: check backend database is running, token required
+      parameters:
+      - description: show tables in db
+        in: body
+        name: db_name
+        required: true
+        schema:
+          $ref: '#/definitions/docs.GenericDBRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.HealthDatabaseResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: check backend database is running, token required
+      tags:
+      - HealthCheck
+  /beta/health/kubernetes:
+    get:
+      consumes:
+      - application/json
+      description: check backend kubernetes is running
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.HealthKubernetesResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      summary: check backend kubernetes is running
+      tags:
+      - HealthCheck
+  /beta/health/kubernetesAuth:
+    get:
+      consumes:
+      - application/json
+      description: check backend kubernetes is running, token required
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.HealthKubernetesResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: check backend kubernetes is running, token required
+      tags:
+      - HealthCheck
+  /beta/images:
+    get:
+      consumes:
+      - application/json
+      description: List images in nchcai/train dockerhub repo
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.ImagesListResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: List images in nchcai/train dockerhub repo
+      tags:
+      - Image
+  /beta/images/commit:
+    post:
+      consumes:
+      - application/json
+      description: Commit current container into new image
+      parameters:
+      - description: course job id and new image name:tag
+        in: body
+        name: commit
+        required: true
+        schema:
+          $ref: '#/definitions/docs.CommitImage'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.GenericOKResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Commit current container into new image
+      tags:
+      - Image
+  /beta/job/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete a running job deployment in user namespace
+      parameters:
+      - description: 'course CRD uuid, eg: 131ba8a9-b60b-44f9-83b5-46590f756f41'
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.GenericOKResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Delete a course CRD in user namespace
+      tags:
+      - Job
+  /beta/job/launch:
+    post:
+      consumes:
+      - application/json
+      description: Create a course CRD in kubernetes
+      parameters:
+      - description: course want to launch
+        in: body
+        name: launch_course
+        required: true
+        schema:
+          $ref: '#/definitions/docs.LaunchCourseRequest'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.LaunchCourseResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Create a course CRD in kubernetes
+      tags:
+      - Job
+  /beta/job/list:
+    post:
+      consumes:
+      - application/json
+      description: List all running course deployment for a user
+      parameters:
+      - description: search user's job
+        in: body
+        name: list_user
+        required: true
+        schema:
+          $ref: '#/definitions/docs.OauthUser'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.JobListResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: List all running course deployment for a user
+      tags:
+      - Job
+  /beta/proxy/changePW:
+    post:
+      consumes:
+      - application/json
+      description: Change user password
+      parameters:
+      - description: new password
+        in: body
+        name: user_password
+        required: true
+        schema:
+          $ref: '#/definitions/docs.PasswordInfo'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.PlainResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Change user password
+      tags:
+      - Proxy
+  /beta/proxy/introspection:
+    post:
+      consumes:
+      - application/json
+      description: Get token meta information from provider
+      parameters:
+      - description: Introspection token
+        in: body
+        name: Introspection_token
+        required: true
+        schema:
+          $ref: '#/definitions/docs.IntrospectionReq'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.IntrospectResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      summary: Get token meta information from provider
+      tags:
+      - Proxy
+  /beta/proxy/logout:
+    post:
+      consumes:
+      - application/json
+      description: Revoke all tokens of a user
+      parameters:
+      - description: user token
+        in: body
+        name: user_token
+        required: true
+        schema:
+          $ref: '#/definitions/docs.IntrospectionReq'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.PlainResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Revoke all tokens of a user
+      tags:
+      - Proxy
+  /beta/proxy/query:
+    get:
+      consumes:
+      - application/json
+      description: query a existing user information
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.UserInfo'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: query a existing user information
+      tags:
+      - Proxy
+  /beta/proxy/refresh:
+    post:
+      consumes:
+      - application/json
+      description: Refresh token with provider
+      parameters:
+      - description: refresh token
+        in: body
+        name: refresh_token
+        required: true
+        schema:
+          $ref: '#/definitions/docs.RefreshTokenReq'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.TokenResp'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      summary: Refresh token with provider
+      tags:
+      - Proxy
+  /beta/proxy/register:
+    post:
+      consumes:
+      - application/json
+      description: Register a new user
+      parameters:
+      - description: user information
+        in: body
+        name: new_user_info
+        required: true
+        schema:
+          $ref: '#/definitions/docs.UserInfo'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.PlainResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      summary: Register a new user
+      tags:
+      - Proxy
+  /beta/proxy/token:
+    post:
+      consumes:
+      - application/json
+      description: Exchange token from Provider
+      parameters:
+      - description: token request
+        in: body
+        name: token_request
+        required: true
+        schema:
+          $ref: '#/definitions/docs.TokenReq'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.TokenResp'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      summary: Exchange token from Provider
+      tags:
+      - Proxy
+  /beta/proxy/update:
+    post:
+      consumes:
+      - application/json
+      description: Update a existing user information
+      parameters:
+      - description: user information
+        in: body
+        name: user_info
+        required: true
+        schema:
+          $ref: '#/definitions/docs.UpdatedUser'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.PlainResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update a existing user information
+      tags:
+      - Proxy
+  /beta/user/role/{roleid}:
+    get:
+      consumes:
+      - application/json
+      description: Get all users' id have the same role
+      parameters:
+      - description: student or teacher
+        in: path
+        name: roleid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/docs.RoleListResponse'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/docs.GenericErrorResponse'
+            type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get all users' id have the same role
+      tags:
+      - User
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
