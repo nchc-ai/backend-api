@@ -3,8 +3,8 @@ package model
 import (
 	"time"
 
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/common"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/db"
+	"github.com/nchc-ai/backend-api/pkg/model/common"
+	"github.com/nchc-ai/backend-api/pkg/model/db"
 	v1 "k8s.io/api/core/v1"
 )
 

@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	goredis "github.com/go-redis/redis/v8"
-	beta "github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/appsbeta"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/db"
+	beta "github.com/nchc-ai/backend-api/pkg/appsbeta"
+	"github.com/nchc-ai/backend-api/pkg/model/db"
 	"github.com/nchc-ai/course-crd/pkg/client/clientset/versioned"
 	"github.com/nitishm/go-rejson/v4"
 
@@ -16,12 +16,12 @@ import (
 	log "github.com/golang/glog"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/config"
+	"github.com/nchc-ai/backend-api/pkg/model/config"
 	github_provider "github.com/nchc-ai/github-oauth-provider/pkg/provider"
 	go_provider "github.com/nchc-ai/go-oauth-provider/pkg/provider"
 	google_provider "github.com/nchc-ai/google-oauth-provider/pkg/provider"
 	provider_inerface "github.com/nchc-ai/oauth-provider/pkg/provider"
-	"github.com/swaggo/gin-swagger"
+	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 

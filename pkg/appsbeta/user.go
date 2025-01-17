@@ -6,10 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 	log "github.com/golang/glog"
 	"github.com/jinzhu/gorm"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/common"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/db"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/proxy"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/util"
+	"github.com/nchc-ai/backend-api/pkg/model/common"
+	"github.com/nchc-ai/backend-api/pkg/model/db"
+	"github.com/nchc-ai/backend-api/pkg/model/proxy"
+	"github.com/nchc-ai/backend-api/pkg/util"
 )
 
 type User struct {

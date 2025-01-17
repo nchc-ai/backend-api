@@ -1,4 +1,4 @@
-module github.com/nchc-ai/AI-Eduational-Platform/backend
+module github.com/nchc-ai/backend-api
 
 go 1.23
 

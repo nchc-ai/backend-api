@@ -12,12 +12,12 @@ import (
 	"github.com/gin-gonic/gin"
 	log "github.com/golang/glog"
 	"github.com/jinzhu/gorm"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/consts"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/common"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/db"
-	img "github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/image"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/util"
+	"github.com/nchc-ai/backend-api/pkg/consts"
+	"github.com/nchc-ai/backend-api/pkg/model"
+	"github.com/nchc-ai/backend-api/pkg/model/common"
+	"github.com/nchc-ai/backend-api/pkg/model/db"
+	img "github.com/nchc-ai/backend-api/pkg/model/image"
+	"github.com/nchc-ai/backend-api/pkg/util"
 	"github.com/nchc-ai/oauth-provider/pkg/provider"
 )
 

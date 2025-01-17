@@ -6,7 +6,7 @@ import (
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/util"
+	"github.com/nchc-ai/backend-api/pkg/util"
 	"github.com/stretchr/testify/assert"
 )
 

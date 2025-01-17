@@ -4,10 +4,10 @@ import (
 	"flag"
 
 	log "github.com/golang/glog"
-	_ "github.com/nchc-ai/AI-Eduational-Platform/backend/docs"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/api"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/consts"
-	cm "github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/config"
+	_ "github.com/nchc-ai/backend-api/docs"
+	"github.com/nchc-ai/backend-api/pkg/api"
+	"github.com/nchc-ai/backend-api/pkg/consts"
+	cm "github.com/nchc-ai/backend-api/pkg/model/config"
 	"github.com/spf13/viper"
 )
 

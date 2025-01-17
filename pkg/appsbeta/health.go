@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	log "github.com/golang/glog"
 	"github.com/jinzhu/gorm"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model"
+	"github.com/nchc-ai/backend-api/pkg/model"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 )

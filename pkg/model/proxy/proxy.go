@@ -1,7 +1,7 @@
 package proxy
 
 import (
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/common"
+	"github.com/nchc-ai/backend-api/pkg/model/common"
 )
 
 type TokenReq struct {

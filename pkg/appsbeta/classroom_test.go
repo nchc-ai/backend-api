@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	uuid2 "github.com/google/uuid"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/consts"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/db"
+	"github.com/nchc-ai/backend-api/pkg/consts"
+	"github.com/nchc-ai/backend-api/pkg/model/db"
 	"github.com/nchc-ai/course-crd/pkg/apis/coursecontroller/v1alpha1"
 	"github.com/nchc-ai/course-crd/pkg/client/clientset/versioned"
 	"github.com/stretchr/testify/assert"

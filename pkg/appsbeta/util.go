@@ -7,7 +7,7 @@ import (
 	"regexp"
 
 	"github.com/gin-gonic/gin"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model"
+	"github.com/nchc-ai/backend-api/pkg/model"
 )
 
 func RespondWithError(c *gin.Context, code int, format string, args ...interface{}) {

@@ -6,8 +6,8 @@ import (
 
 	log "github.com/golang/glog"
 	"github.com/jinzhu/gorm"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/model/common"
-	"github.com/nchc-ai/AI-Eduational-Platform/backend/pkg/util"
+	"github.com/nchc-ai/backend-api/pkg/model/common"
+	"github.com/nchc-ai/backend-api/pkg/util"
 	"github.com/nchc-ai/course-crd/pkg/apis/coursecontroller/v1alpha1"
 )
 
